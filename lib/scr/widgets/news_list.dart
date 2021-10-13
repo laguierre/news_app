@@ -97,7 +97,7 @@ class _PictureCard extends StatelessWidget {
                 ? FadeInImage(
                     placeholder:
                         const AssetImage('lib/assets/images/giphy.gif'),
-                    image: NetworkImage(news.urlToImage),
+                    image: NetworkImage(news.urlToImage!),
                   )
                 : const Image(
                     image: AssetImage('lib/assets/images/no-image.png'))),
@@ -117,7 +117,7 @@ class _TitleCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Text(
         news.title,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       ),
     );
   }
