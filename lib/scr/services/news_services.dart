@@ -37,6 +37,7 @@ class NewsService with ChangeNotifier {
 
   set selectedCategory(String value) {
     _selectedCategory = value;
+    _isLoading = true;
     getArticlesByCategory(value);
     notifyListeners();
   }
@@ -52,6 +53,7 @@ class NewsService with ChangeNotifier {
     final resp = await http.get(Uri.parse(url));
     final newsResponse = newsResponseFromJson(resp.body);
     headlines.addAll(newsResponse.articles);
+    print(newsResponse.articles);
     notifyListeners();
   }
 

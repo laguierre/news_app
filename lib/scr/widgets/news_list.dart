@@ -18,7 +18,7 @@ class NewsList extends StatelessWidget {
 }
 
 class _News extends StatelessWidget {
-  const _News(this.news, this.index);
+  const _News(@required this.news, @required this.index);
 
   final Article news;
   final int index;
@@ -117,7 +117,7 @@ class _TitleCard extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 15.0),
       child: Text(
         news.title,
-        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
       ),
     );
   }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news_app/scr/pages/tab1_page.dart';
 import 'package:news_app/scr/pages/tab2_page.dart';
-import 'package:news_app/scr/services/news_services.dart';
 import 'package:provider/provider.dart';
 
 class TabPage extends StatelessWidget {
@@ -11,7 +10,7 @@ class TabPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       create: (_) => _ModelNav(),
-      child: Scaffold(
+      child: const Scaffold(
         body: _Pages(),
         bottomNavigationBar: _BtnNav(),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:news_app/scr/pages/tabs_page.dart';
 import 'package:news_app/scr/services/news_services.dart';
 import 'package:news_app/scr/theme/theme.dart';
@@ -14,6 +15,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light );
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => NewsService()),
