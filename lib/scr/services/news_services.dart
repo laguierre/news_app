@@ -4,8 +4,9 @@ import 'package:news_app/scr/models/category_model.dart';
 import 'package:news_app/scr/models/news_models.dart';
 import 'package:http/http.dart' as http;
 
-final _urlNEWS = 'https://newsapi.org/v2';
-final _APIKey = 'd0a978261613462b91f55ddc6cb40a27';
+const _urlNEWS = 'https://newsapi.org/v2';
+const _APIKey = 'd0a978261613462b91f55ddc6cb40a27';
+const _Country = 'ar';
 
 class NewsService with ChangeNotifier {
   List<Article> headlines = [];
@@ -48,7 +49,7 @@ class NewsService with ChangeNotifier {
       categoryArticles[selectedCategory];
 
   getTopHeadLines() async {
-    final url = '$_urlNEWS/top-headlines?apiKey=$_APIKey&country=ca';
+    final url = '$_urlNEWS/top-headlines?apiKey=$_APIKey&country=$_Country';
 
     final resp = await http.get(Uri.parse(url));
     final newsResponse = newsResponseFromJson(resp.body);
@@ -64,7 +65,7 @@ class NewsService with ChangeNotifier {
       return categoryArticles[category];
     }
     final url =
-        '$_urlNEWS/top-headlines?apiKey=$_APIKey&country=ca&category=$category';
+        '$_urlNEWS/top-headlines?apiKey=$_APIKey&country=$_Country&category=$category';
 
     final resp = await http.get(Uri.parse(url));
     final newsResponse = newsResponseFromJson(resp.body);

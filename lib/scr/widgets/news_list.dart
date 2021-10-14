@@ -70,13 +70,13 @@ class _BodyCard extends StatelessWidget {
 
   final Article news;
 
+
   @override
   Widget build(BuildContext context) {
+    print('Descripcion: $news.description');
     return Container(
         padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Text(
-          news.description != null ? news.description : '',
-        ));
+        child: Text((news.description.isNotEmpty? news.description : '' )));
   }
 }
 
@@ -97,7 +97,7 @@ class _PictureCard extends StatelessWidget {
                 ? FadeInImage(
                     placeholder:
                         const AssetImage('lib/assets/images/giphy.gif'),
-                    image: NetworkImage(news.urlToImage!),
+                    image: NetworkImage(news.urlToImage),
                   )
                 : const Image(
                     image: AssetImage('lib/assets/images/no-image.png'))),
