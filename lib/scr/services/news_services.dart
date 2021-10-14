@@ -36,14 +36,14 @@ class NewsService with ChangeNotifier {
 
   bool get isLoading => _isLoading;
 
+  String get selectedCategory => _selectedCategory;
+
   set selectedCategory(String value) {
     _selectedCategory = value;
     _isLoading = true;
     getArticlesByCategory(value);
     notifyListeners();
   }
-
-  String get selectedCategory => _selectedCategory;
 
   List<Article>? get getSelectedArticlesCategory =>
       categoryArticles[selectedCategory];
@@ -54,7 +54,7 @@ class NewsService with ChangeNotifier {
     final resp = await http.get(Uri.parse(url));
     final newsResponse = newsResponseFromJson(resp.body);
     headlines.addAll(newsResponse.articles);
-    print(newsResponse.articles);
+
     notifyListeners();
   }
 
@@ -70,6 +70,7 @@ class NewsService with ChangeNotifier {
     final resp = await http.get(Uri.parse(url));
     final newsResponse = newsResponseFromJson(resp.body);
     categoryArticles[category]!.addAll(newsResponse.articles);
+
     this._isLoading = false;
     notifyListeners();
   }

@@ -17,7 +17,7 @@ class _Tab1PageState extends State<Tab1Page> with AutomaticKeepAliveClientMixin 
 
     return Scaffold(
       body: SafeArea(
-        child: (headlines.isEmpty)
+        child: (headlines.length == 0)
             ? Center(
                 child: CircularProgressIndicator(),
               )
